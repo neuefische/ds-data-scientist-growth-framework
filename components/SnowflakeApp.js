@@ -99,7 +99,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
       <main>
         <style jsx global>{`
           body {
-            font-family: Helvetica Neue;
+            font-family: Open-sans;
           }
           main {
             width: 960px;
@@ -126,11 +126,11 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
           }
         `}</style>
         <div style={{ margin: "19px auto 0", width: 180 }}>
-          <a href="https://rasa.com/" target="_blank">
+          <a href="https://neuefische.de/" target="_blank">
             <Wordmark />
           </a>
         </div>
-        <h1>Engineering growth framework at Rasa (WIP)</h1>
+        <h1>Data Scientist Skills and Levels at neue fische school</h1>
         {/* <TitleSelector
           currentTitleId={this.state.focusedTitleId}
           setTitleFn={this.setTitleId.bind(this)}
@@ -176,10 +176,10 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
         />
         <div style={{ display: "flex", paddingBottom: "20px" }}>
           <div style={{ flex: 1}}>
-            Made at Rasa 
-            <a href="https://rasa.com/" target="_blank">
+            Made at neuefishce 
+            <a href="https://neuefische.de/" target="_blank">
               <img src="static/favicon.ico" style={{width: `20px`, marginLeft: `3px`}}></img>
-            </a>. © Rasa Technologies Inc - 2020.
+            </a>. © 2019 neuefische GmbH.
             {" "}Based on{" "}
             <a href="https://github.com/Medium/snowflake" target="_blank">
               Medium's snowflake project
