@@ -74,6 +74,12 @@ type Titles = {|
   STAFF_ENGINEER: Title,
 |};
 
+export const BEGINNER = "Unconscious incompetence."
+export const MID = "Conscious incompetence."
+export const ADVANCED = "Unconscious competence."
+export const EXPERT = "Conscious competence."
+
+
 export type TitleId =
   | "JUNIOR_SOFTWARE_ENGINEER"
   | "SOFTWARE_ENGINEER"
@@ -90,51 +96,57 @@ type Vertical = {
 }
 
 type Verticals = {|
-  TECHNICAL_SKILLS: Vertical,
+  DATA_ANALYSIS: Vertical,
   EXECUTION: Vertical,
   TEAMWORK: Vertical,
-  INFLUENCE: Vertical,
+  PRODUCTION: Vertical,
   PRODUCT_SENSE: Vertical,
 |}
 
 export const tracks: Tracks = {
   DESIGN: {
-    displayName: "Design",
-    category: "TECHNICAL_SKILLS",
-    description: "Architect simple solutions even if the use case is complex.",
+    displayName: "Design the Analysis",
+    category: "DATA_ANALYSIS",
+    description: "Translating business requirements into a technical analytic plan. Or 'know how to deal with ambiguous requirements' ",
     milestones: [
       {
         summary:
-          "Come up with solutions to solve the problem detailed in an issue following best practices established in the team.",
-        examples: ["Write testable, readable code keeping edge cases in mind."],
+        BEGINNER+" Analysis plan would be vague and be rather superficial.",
+        examples: ["Plan to answer exactly the question asked by the stakeholder.",
+        "No clear plan on which algorithms will be applicable.",
+        "No clear expectations of what the analysis result would be.",
+        "Optimistic deadlines"],
       },
       {
         summary:
-          "Utilises abstractions and code isolation effectively. Maintain consistency across the code base and handles edge cases. Code review their own work and regularly review their teammates' work.",
+        MID+ " Analysis plan is more modular, scope and milestones are defined",
         examples: [
-          "Leave the code base in a better place than before.",
-          "Write the scoping document and implement support for rules in Rasa X.",
-          "Come up with solutions to implementing HTTPS for IVC.",
-          "Adapt drafts from the research team to production-ready code."
+          "Scope of plan extends further than stakeholder questions.",
+          "Plan for what analysis methods should fit best", 
+          "Although still no clear expectation of results prior to starting work.",
+          "Plan for the possibility that initial analysis doesn't give expected results.",
+          "Some milestones are set with some analysis stopping rules."
         ],
       },
       {
         summary:
-          "Design software that are maintainable and easy to extend. The software can withstand the test of time.",
+        ADVANCED+ " Analysis plan is modular, with scope and milestones",
         examples: [
-          "Implement a testing framework that reduces the team's time fixing bugs.",
-          "Reduce Rasa - Rasa X code coupling to optimize for long-term delivery speed.",
-          "Design Rasa X workspaces, the code doesn't require major refactoring after the project.",
+          "Analysis plan goes beyond the stakeholder questions.",
+          "Milestones are defined with stopping rules and plan B.",
+          "Methods selected and some expectations of results and difficulties.",
+          "Plan for long term use of the analysis is made."
         ],
       },
       {
         summary:
-          "A record of designing stable, maintainable, scalable code that is product-critical. Can articulate tradeoffs across the architecture owned by the squad. This level requires evaluation that spans across multiple quarters.",
+          EXPERT +" Well defined analysis plan with milestones and expectations.",
         examples: [
-          "Turnaround: identify blockers for the product to be successful and architect a plan to resolve them.",
-          "Accelaterated growth: can quickly identify bottlenecks that will happen and propose a design to tackle scalability and performance. Even when shortcuts are necessary, they should be documented and followed up.",
-          "Sustaining success: design software that anticipates future product and team needs.",
-          "One example: creating a UI component library so that we could iterate fast on the frontend.",
+          "Clear plan on what methods will be used and expected results.",
+          "Stakeholder follow up questions are anticipated.",
+          "Milestones and stopping rules with realistic deadlines.",
+          "All the pieces of the plan sum up to a whole that maintains conceptual integrity.",
+          "Plan for how the analysis fits in the bigger picture.."
         ],
       },
     ],
@@ -142,13 +154,13 @@ export const tracks: Tracks = {
 
   DOMAIN_EXPERTISE: {
     displayName: "Domain Expertise",
-    category: "TECHNICAL_SKILLS",
+    category: "DATA_ANALYSIS",
     description:
       "Develop expertise in your field(s) and apply that to the Rasa code base.",
     milestones: [
       {
         summary:
-          "Learn to use existing tools at Rasa. Read our documentation and able follow the steps. Update our documentation if needed.",
+        BEGINNER+" Learn to use existing tools at Rasa. Read our documentation and able follow the steps. Update our documentation if needed.",
         examples: [],
       },
       {
@@ -182,7 +194,7 @@ export const tracks: Tracks = {
   },
 
   DELIVERY: {
-    displayName: "Delivery",
+    displayName: "Data Exploration",
     category: "EXECUTION",
     description: "Deliver on commitments in a realistic and timely manner.",
     milestones: [
@@ -227,7 +239,7 @@ export const tracks: Tracks = {
   },
 
   SCOPING: {
-    displayName: "Scoping",
+    displayName: "Result Presentation",
     category: "EXECUTION",
     description:
       "Break up work into actionable chunks so that you can parallelize the work and iterate quickly.",
@@ -337,7 +349,7 @@ export const tracks: Tracks = {
   },
 
   EQUITY_AND_INCLUSION: {
-    displayName: "Equity and inclusion",
+    displayName: "Mentorship",
     category: "TEAMWORK",
     description:
       "Respect is our code: diversity, equity and inclusion is the core of our mission. (Can opt out from IV)",
@@ -380,8 +392,8 @@ export const tracks: Tracks = {
   },
 
   MENTORSHIP: {
-    displayName: "Mentorship",
-    category: "INFLUENCE",
+    displayName: "Reproducibility",
+    category: "PRODUCTION",
     description:
       "Challenge yourself and your team to be exceptional: share your learnings and knowledge to raise the bar.",
     milestones: [
@@ -424,8 +436,8 @@ export const tracks: Tracks = {
   },
 
   RECRUITING: {
-    displayName: "Recruiting",
-    category: "INFLUENCE",
+    displayName: "Data pipelines",
+    category: "PRODUCTION",
     description:
       "Help Rasa grow by bringing in more Rasas. (Can opt out from III)",
     milestones: [
@@ -461,8 +473,8 @@ export const tracks: Tracks = {
   },
 
   OUTREACH: {
-    displayName: "Outreach",
-    category: "INFLUENCE",
+    displayName: "Code reusability",
+    category: "PRODUCTION",
     description: "Be an ambassador for Rasa. (Can opt out)",
     milestones: [
       {
@@ -572,11 +584,11 @@ export const categoryIds: Set<string> = trackIds.reduce((set, trackId) => {
 export const categoryColorScale = d3
   .scaleOrdinal()
   .domain(categoryIds)
-  .range(["#D923BA", "#491BF2", "#8E72F2", "#E1DCF2", "#77F2F2"]);
+  .range(["#FF5A36", "#33658A",  "#FFBA08", "#5E5E5E", "#069E2D"]);
 
 export const verticals: Verticals = {
-  TECHNICAL_SKILLS: {
-    displayName: "Technical skills",
+  DATA_ANALYSIS: {
+    displayName: "Data Analysis",
     numAreas: 2,
   },
   EXECUTION: {
@@ -587,8 +599,8 @@ export const verticals: Verticals = {
     displayName: "Teamwork",
     numAreas: 3,
   },
-  INFLUENCE: {
-    displayName: "Influence",
+  PRODUCTION: {
+    displayName: "Production",
     numAreas: 3,
   },
   PRODUCT_SENSE: {

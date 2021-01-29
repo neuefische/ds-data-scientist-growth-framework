@@ -183,6 +183,10 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             {" "}Based on{" "}
             <a href="https://github.com/Medium/snowflake" target="_blank">
               Medium's snowflake project
+            </a>{" "}
+            and{" "}
+            <a href="https://towardsdatascience.com/a-framework-for-evaluating-data-scientist-competency-89b5f275a6bf" target="_blank">
+              Schaun Whee's data science competency framework
             </a>
             .
           </div>
