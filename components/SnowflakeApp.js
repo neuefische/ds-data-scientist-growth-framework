@@ -176,8 +176,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
         />
         <div style={{ display: "flex", paddingBottom: "20px" }}>
           <div style={{ flex: 1}}>
-            Made at neuefishce 
-            <a href="https://neuefische.de/" target="_blank">
+            Made at neuefische 
+            <a href="https://www.neuefische.de" target="_blank">
               <img src="static/favicon.ico" style={{width: `20px`, marginLeft: `3px`}}></img>
             </a>. © 2019 neuefische GmbH.
             {" "}Based on{" "}
